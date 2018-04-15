@@ -4,16 +4,17 @@ class PostsController < ApplicationController
 	end
 
 	def show
-		@post = Post.find(params[:id])
+    @post = Post.find(params[:id])
 	end
-
+  
 	def new
 		@post = Post.new
 		@categories = Category.all
 	end
-
+  
 	def create
 		post = Post.create(params[:post])
+    # binding.pry
 		redirect_to post_path(post)
 	end
 
